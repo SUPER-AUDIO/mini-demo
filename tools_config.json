@@ -1,0 +1,556 @@
+{
+  "speech_enhancement": {
+    "name": "speech_enhancement",
+    "description": "Enhances speech audio by applying gain/volume adjustment",
+    "parameters": {
+      "gain_db": "float - Gain in decibels to boost or reduce volume (positive for louder, negative for quieter)"
+    },
+    "use_cases": [
+      "make audio louder",
+      "boost volume", 
+      "enhance speech",
+      "amplify sound",
+      "increase volume",
+      "decrease volume",
+      "quieter",
+      "softer"
+    ],
+    "examples": [
+      "Make this audio 6dB louder",
+      "Reduce the volume by 3dB",
+      "Boost the audio",
+      "Make it quieter"
+    ]
+  },
+  "voice_conversion": {
+    "name": "voice_conversion",
+    "description": "Changes the pitch of voice/audio by shifting semitones",
+    "parameters": {
+      "semitones": "float - Number of semitones to shift pitch (positive for higher, negative for lower)"
+    },
+    "use_cases": [
+      "change pitch",
+      "make voice higher",
+      "make voice lower", 
+      "pitch shift",
+      "voice modulation",
+      "raise pitch",
+      "lower pitch",
+      "higher tone",
+      "deeper voice"
+    ],
+    "examples": [
+      "Lower the pitch by 2 semitones",
+      "Make the voice higher",
+      "Raise pitch by 4 semitones",
+      "Make it sound deeper"
+    ]
+  },
+  "highpass_filter": {
+    "name": "highpass_filter",
+    "description": "Removes low-frequency noise and rumble using a high-pass filter",
+    "parameters": {
+      "cutoff_frequency_hz": "float - Cutoff frequency in Hz, frequencies below this are attenuated (default: 50.0)"
+    },
+    "use_cases": [
+      "remove rumble",
+      "clean low frequencies",
+      "remove bass noise",
+      "high pass filter",
+      "cut low end",
+      "remove hum"
+    ],
+    "examples": [
+      "Remove low frequency rumble",
+      "High pass filter at 80Hz",
+      "Clean up the bass",
+      "Remove hum and rumble"
+    ]
+  },
+  "lowpass_filter": {
+    "name": "lowpass_filter",
+    "description": "Removes high-frequency noise and harshness using a low-pass filter",
+    "parameters": {
+      "cutoff_frequency_hz": "float - Cutoff frequency in Hz, frequencies above this are attenuated (default: 8000.0)"
+    },
+    "use_cases": [
+      "remove harshness",
+      "darken sound",
+      "clean high frequencies",
+      "low pass filter",
+      "cut high end",
+      "remove sibilance",
+      "soften audio",
+      "vintage sound"
+    ],
+    "examples": [
+      "Remove harsh high frequencies",
+      "Low pass filter at 6kHz",
+      "Make it sound warmer",
+      "Darken the sound",
+      "Remove sibilance"
+    ]
+  },
+  "noise_gate": {
+    "name": "noise_gate",
+    "description": "Reduces background noise and unwanted sounds using a noise gate",
+    "parameters": {
+      "threshold_db": "float - Gate threshold in dB, sounds below this are reduced (default: -40.0)",
+      "ratio": "float - Reduction ratio, higher values create more aggressive gating (default: 2.0)",
+      "attack_ms": "float - Attack time in milliseconds (default: 10.0)",
+      "release_ms": "float - Release time in milliseconds (default: 100.0)"
+    },
+    "use_cases": [
+      "remove noise",
+      "gate background",
+      "clean audio",
+      "reduce unwanted sounds",
+      "noise reduction",
+      "clean recording"
+    ],
+    "examples": [
+      "Remove background noise",
+      "Gate the quiet parts",
+      "Clean up this recording",
+      "Reduce noise between words"
+    ]
+  },
+  "compressor": {
+    "name": "compressor",
+    "description": "Applies dynamic range compression to even out audio levels",
+    "parameters": {
+      "threshold_db": "float - Compression threshold in dB (default: -18.0)",
+      "ratio": "float - Compression ratio, higher values create more compression (default: 3.0)",
+      "attack_ms": "float - Attack time in milliseconds (default: 10.0)",
+      "release_ms": "float - Release time in milliseconds (default: 100.0)"
+    },
+    "use_cases": [
+      "even out levels",
+      "compress audio",
+      "control dynamics",
+      "make consistent volume",
+      "smooth out peaks",
+      "professional sound"
+    ],
+    "examples": [
+      "Compress this audio",
+      "Even out the volume levels",
+      "Make the dynamics more consistent",
+      "Apply gentle compression"
+    ]
+  },
+  "peak_filter": {
+    "name": "peak_filter",
+    "description": "Boosts or cuts specific frequencies using a peak/notch filter",
+    "parameters": {
+      "center_hz": "float - Center frequency in Hz (default: 1000.0)",
+      "gain_db": "float - Gain in dB, positive values boost, negative values cut (default: 0.0)",
+      "q": "float - Filter Q factor, higher values affect narrower frequency range (default: 1.0)"
+    },
+    "use_cases": [
+      "boost frequency",
+      "cut frequency",
+      "EQ specific range",
+      "notch filter",
+      "frequency adjustment",
+      "tone shaping"
+    ],
+    "examples": [
+      "Boost 2kHz by 3dB",
+      "Cut the harsh frequencies",
+      "EQ around 800Hz",
+      "Notch out that frequency"
+    ]
+  },
+  "high_shelf": {
+    "name": "high_shelf",
+    "description": "Boosts or cuts high frequencies using a high-shelf filter",
+    "parameters": {
+      "cutoff_hz": "float - Shelf frequency in Hz, frequencies above this are affected (default: 8000.0)",
+      "gain_db": "float - Gain in dB, positive boosts highs, negative cuts highs (default: 0.0)"
+    },
+    "use_cases": [
+      "boost highs",
+      "cut highs",
+      "add brightness",
+      "reduce harshness",
+      "treble adjustment",
+      "high frequency EQ"
+    ],
+    "examples": [
+      "Add some brightness",
+      "Boost the high frequencies",
+      "Cut the harsh highs",
+      "Make it sound brighter"
+    ]
+  },
+  "low_shelf": {
+    "name": "low_shelf",
+    "description": "Boosts or cuts low frequencies using a low-shelf filter",
+    "parameters": {
+      "cutoff_hz": "float - Shelf frequency in Hz, frequencies below this are affected (default: 200.0)",
+      "gain_db": "float - Gain in dB, positive boosts bass, negative cuts bass (default: 0.0)"
+    },
+    "use_cases": [
+      "boost bass",
+      "cut bass",
+      "add warmth",
+      "reduce muddiness",
+      "bass adjustment",
+      "low frequency EQ"
+    ],
+    "examples": [
+      "Add some bass",
+      "Boost the low end",
+      "Cut the muddy frequencies",
+      "Make it sound warmer"
+    ]
+  },
+  "ladder_filter": {
+    "name": "ladder_filter",
+    "description": "Applies Moog-style ladder filter for vintage synthesizer-like filtering",
+    "parameters": {
+      "cutoff_hz": "float - Filter cutoff frequency in Hz (default: 1000.0)",
+      "resonance": "float - Filter resonance from 0.0 to 1.0, higher values are more resonant (default: 0.2)",
+      "drive_db": "float - Input drive in dB, adds harmonic distortion (default: 0.0)"
+    },
+    "use_cases": [
+      "vintage filter",
+      "analog sound",
+      "creative filtering",
+      "moog filter",
+      "resonant filter",
+      "synth-like effect"
+    ],
+    "examples": [
+      "Apply vintage filter",
+      "Make it sound analog",
+      "Add some resonance",
+      "Filter like a Moog"
+    ]
+  },
+  "reverb": {
+    "name": "reverb",
+    "description": "Adds professional reverb effect to create spatial depth and ambience",
+    "parameters": {
+      "room_size": "float - Room size from 0.0 to 1.0, larger values create bigger spaces (default: 0.25)",
+      "damping": "float - High frequency damping from 0.0 to 1.0, higher values are more damped (default: 0.5)",
+      "wet_level": "float - Wet signal level from 0.0 to 1.0 (default: 0.15)",
+      "dry_level": "float - Dry signal level from 0.0 to 1.0 (default: 0.85)"
+    },
+    "use_cases": [
+      "add reverb",
+      "create space",
+      "ambient sound",
+      "hall reverb",
+      "room sound",
+      "spatial depth"
+    ],
+    "examples": [
+      "Add reverb to this",
+      "Make it sound like a big room",
+      "Add some space",
+      "Create ambient reverb"
+    ]
+  },
+  "delay": {
+    "name": "delay",
+    "description": "Adds delay effect for echo and rhythmic repeats",
+    "parameters": {
+      "delay_seconds": "float - Delay time in seconds (default: 0.35)",
+      "feedback": "float - Feedback amount from 0.0 to 1.0, higher values create more repeats (default: 0.25)",
+      "mix": "float - Wet/dry mix from 0.0 to 1.0 (default: 0.2)"
+    },
+    "use_cases": [
+      "add delay",
+      "create echo",
+      "rhythmic repeats",
+      "delay effect",
+      "echo effect",
+      "repeat sound"
+    ],
+    "examples": [
+      "Add some delay",
+      "Create an echo effect",
+      "Add rhythmic repeats",
+      "Apply delay with feedback"
+    ]
+  },
+  "chorus": {
+    "name": "chorus",
+    "description": "Adds chorus effect for thicker, richer sound with subtle pitch modulation",
+    "parameters": {
+      "rate_hz": "float - Modulation rate in Hz, speed of the effect (default: 1.0)",
+      "depth": "float - Modulation depth from 0.0 to 1.0, higher values are more pronounced (default: 0.25)",
+      "mix": "float - Wet/dry mix from 0.0 to 1.0 (default: 0.25)"
+    },
+    "use_cases": [
+      "add chorus",
+      "thicken sound",
+      "richer texture",
+      "modulation effect",
+      "fuller sound",
+      "vintage chorus"
+    ],
+    "examples": [
+      "Add chorus effect",
+      "Make it sound thicker",
+      "Apply vintage chorus",
+      "Add some modulation"
+    ]
+  },
+  "phaser": {
+    "name": "phaser",
+    "description": "Adds phaser effect for sweeping, swooshing sounds",
+    "parameters": {
+      "rate_hz": "float - Modulation rate in Hz, speed of the sweep (default: 0.5)",
+      "depth": "float - Modulation depth from 0.0 to 1.0, higher values are more dramatic (default: 0.5)",
+      "mix": "float - Wet/dry mix from 0.0 to 1.0 (default: 0.25)"
+    },
+    "use_cases": [
+      "add phaser",
+      "sweeping effect",
+      "whoosh sound",
+      "phase effect",
+      "modulation sweep",
+      "vintage phaser"
+    ],
+    "examples": [
+      "Add phaser effect",
+      "Create sweeping sound",
+      "Apply phase modulation",
+      "Add vintage phaser"
+    ]
+  },
+  "limiter": {
+    "name": "limiter",
+    "description": "Applies limiting to prevent digital clipping and control peak levels",
+    "parameters": {
+      "threshold_db": "float - Limiting threshold in dB, peaks above this are limited (default: -1.0)",
+      "release_ms": "float - Release time in milliseconds (default: 100.0)"
+    },
+    "use_cases": [
+      "prevent clipping",
+      "limit peaks",
+      "master limiter",
+      "peak control",
+      "output safety",
+      "final limiting"
+    ],
+    "examples": [
+      "Apply peak limiting",
+      "Prevent clipping",
+      "Limit the output",
+      "Add safety limiting"
+    ]
+  },
+  "gain": {
+    "name": "gain",
+    "description": "Adjusts overall level by applying gain in decibels",
+    "parameters": {
+      "gain_db": "float - Gain in dB (positive=boost, negative=attenuate)"
+    },
+    "use_cases": [
+      "make louder",
+      "reduce volume",
+      "normalize level"
+    ],
+    "examples": [
+      "Boost by 6 dB",
+      "Make it 3 dB quieter"
+    ]
+  },
+  "invert": {
+    "name": "invert",
+    "description": "Flips the polarity (phase) of the audio signal",
+    "parameters": {},
+    "use_cases": [
+      "phase invert",
+      "flip polarity"
+    ],
+    "examples": [
+      "Invert the phase"
+    ]
+  },
+  "mp3_compressor": {
+    "name": "mp3_compressor",
+    "description": "Applies MP3-style compression artifacts using LAME (VBR)",
+    "parameters": {
+      "vbr_quality": "float - 0.0-10.0, lower is better quality (default 2.0)"
+    },
+    "use_cases": [
+      "lo-fi mp3 sound",
+      "compression artifacts"
+    ],
+    "examples": [
+      "Apply mp3 compression at quality 4"
+    ]
+  },
+  "gsm_compressor": {
+    "name": "gsm_compressor",
+    "description": "Applies GSM Full Rate compression to emulate 2G phone sound",
+    "parameters": {
+      "quality": "ResamplingQuality - Resampling quality preset (e.g., WindowedSinc8)"
+    },
+    "use_cases": [
+      "telephone effect",
+      "cell phone sound"
+    ],
+    "examples": [
+      "Apply GSM full-rate compression"
+    ]
+  },
+  "add_latency": {
+    "name": "add_latency",
+    "description": "Adds delay by inserting the specified number of silent samples",
+    "parameters": {
+      "samples": "int - Number of samples to delay (default 44100)"
+    },
+    "use_cases": [
+      "test latency",
+      "align tracks"
+    ],
+    "examples": [
+      "Delay by 22050 samples"
+    ]
+  },
+  "distortion": {
+    "name": "distortion",
+    "description": "Adds harmonic distortion using tanh waveshaping",
+    "parameters": {
+      "drive_db": "float - Drive amount in dB (default 25.0)"
+    },
+    "use_cases": [
+      "add distortion",
+      "saturation"
+    ],
+    "examples": [
+      "Add 12 dB of drive"
+    ]
+  },
+  "clipping": {
+    "name": "clipping",
+    "description": "Applies hard clipping at a fixed threshold",
+    "parameters": {
+      "threshold_db": "float - Threshold in dB to clip at (default -6.0)"
+    },
+    "use_cases": [
+      "hard distortion",
+      "limit peaks aggressively"
+    ],
+    "examples": [
+      "Clip at -3 dB"
+    ]
+  },
+  "bitcrush": {
+    "name": "bitcrush",
+    "description": "Reduces bit depth for lo-fi digital sound",
+    "parameters": {
+      "bit_depth": "float - Target bit depth (e.g., 8)"
+    },
+    "use_cases": [
+      "lo-fi",
+      "digital crunch"
+    ],
+    "examples": [
+      "Bitcrush to 6 bits"
+    ]
+  },
+  "speech_recognition": {
+    "name": "speech_recognition",
+    "description": "Transcribes audio to text using automatic speech recognition (ASR) with SpeechBrain",
+    "parameters": {},
+    "use_cases": [
+      "transcribe audio",
+      "speech to text",
+      "convert speech to text",
+      "audio transcription",
+      "ASR",
+      "speech recognition",
+      "what does the audio say",
+      "transcribe this",
+      "convert to text"
+    ],
+    "examples": [
+      "Transcribe this audio to text",
+      "What does the speaker say?",
+      "Convert this speech to text",
+      "Transcribe the audio file",
+      "Perform speech recognition",
+      "What is being said in this audio?"
+    ]
+  },
+  "speechbrain_enhancement": {
+    "name": "speechbrain_enhancement",
+    "description": "Enhances speech quality using advanced neural networks (MetricGAN+) to reduce noise and improve clarity",
+    "parameters": {},
+    "use_cases": [
+      "enhance speech quality",
+      "reduce noise",
+      "improve speech clarity",
+      "denoise audio",
+      "clean up speech",
+      "neural enhancement",
+      "improve audio quality",
+      "speech denoising",
+      "advanced enhancement",
+      "AI enhancement"
+    ],
+    "examples": [
+      "Enhance the speech quality",
+      "Reduce noise in this audio",
+      "Improve speech clarity",
+      "Clean up this noisy recording",
+      "Apply neural enhancement",
+      "Denoise this speech",
+      "Make the speech clearer",
+      "Use AI to enhance audio quality"
+    ]
+  },
+  "text_to_speech": {
+    "name": "text_to_speech",
+    "description": "Converts text to natural-sounding speech using neural text-to-speech synthesis (Tacotron2 + HiFiGAN). No input audio file required - generates audio from text.",
+    "parameters": {
+      "text": "string - The text to convert to speech (extracted from quotes in user request)"
+    },
+    "use_cases": [
+      "text to speech",
+      "TTS",
+      "synthesize speech",
+      "generate voice",
+      "convert text to audio",
+      "speak text",
+      "voice synthesis",
+      "say something",
+      "read text aloud",
+      "generate speech",
+      "create audio from text"
+    ],
+    "examples": [
+      "Say \"Hello world\"",
+      "Convert \"Welcome to our service\" to speech",
+      "Generate speech for \"Thank you for using our system\"",
+      "Synthesize \"The weather is nice today\"",
+      "Create voice saying \"Please hold while we connect you\"",
+      "Make audio of \"This is a test message\"",
+      "Generate speech without uploading audio"
+    ]
+  }
+  ,
+  "list_capabilities": {
+    "name": "list_capabilities",
+    "description": "Lists all available tools this agent can use with their parameters.",
+    "parameters": {},
+    "use_cases": [
+      "what can you do",
+      "what tools are available",
+      "list tools",
+      "capabilities"
+    ],
+    "examples": [
+      "What tools can you use?",
+      "List your capabilities",
+      "What are you able to do?"
+    ]
+  }
+}

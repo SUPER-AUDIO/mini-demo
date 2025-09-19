@@ -1,0 +1,43 @@
+<div class="tool-card glass-card">
+    <div class="tool-header">
+        <div class="tool-icon">{icon}</div>
+        <div class="tool-info">
+            <h4 class="tool-name">{name}</h4>
+            <p class="tool-category">{category}</p>
+        </div>
+        <div class="tool-status {status}">
+            <div class="status-indicator"></div>
+        </div>
+    </div>
+    
+    <div class="tool-description">
+        <p>{description}</p>
+    </div>
+    
+    <div class="tool-parameters">
+        <h5>Parameters:</h5>
+        <div class="parameter-list">
+            {parameters}
+        </div>
+    </div>
+    
+    <div class="tool-actions">
+        <button class="btn-primary tool-btn" onclick="applyTool('{tool_id}')">
+            Apply Tool
+        </button>
+        <button class="btn-secondary info-btn" onclick="showToolInfo('{tool_id}')">
+            More Info
+        </button>
+    </div>
+    
+    <div class="tool-stats">
+        <div class="stat">
+            <span class="stat-value">{usage_count}</span>
+            <span class="stat-label">Uses</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">{success_rate}%</span>
+            <span class="stat-label">Success</span>
+        </div>
+    </div>
+</div>

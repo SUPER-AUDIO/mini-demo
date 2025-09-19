@@ -1,0 +1,437 @@
+/* SuperAudio Mini - Subtle Component Enhancements */
+/* This file provides minimal, non-intrusive styling that enhances the existing Gradio interface */
+
+/* CSS Variables for Consistent Theming */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --accent-color: #06b6d4;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    
+    --border-radius: 8px;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Subtle Global Enhancements - Non-intrusive */
+.gradio-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Subtle header enhancement */
+.custom-header-text h1 {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-align: center !important;
+}
+
+/* Subtle Button Enhancements */
+button[variant="primary"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    border: none !important;
+    transition: var(--transition) !important;
+}
+
+button[variant="primary"]:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+button[variant="secondary"] {
+    border: 2px solid var(--primary-color) !important;
+    transition: var(--transition) !important;
+}
+
+button[variant="secondary"]:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Subtle Audio Component Enhancement */
+.equal-audio {
+    border-radius: 30px !important;
+    transition: var(--transition) !important;
+}
+
+.equal-audio:hover {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Subtle Input Enhancements */
+.gradio-container .gr-textbox, 
+.gradio-container .gr-textarea {
+    border-radius: 30px !important;
+    transition: var(--transition) !important;
+}
+
+.gradio-container .gr-textbox:focus-within, 
+.gradio-container .gr-textarea:focus-within {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Subtle Dropdown Enhancements */
+.gradio-container .gr-dropdown {
+    border-radius: 30px !important;
+    transition: var(--transition) !important;
+}
+
+.gradio-container .gr-dropdown:hover {
+    border-color: var(--primary-color) !important;
+}
+
+/* Subtle Chatbot Enhancement */
+.gradio-container .gr-chatbot {
+    border-radius: 40px !important;
+}
+
+/* Center container and spacing */
+.app-container { 
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 0 16px 0 0; /* remove left padding so logo hugs page edge */
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.app-container .gr-row { align-items: center; }
+.gr-row, .gr-column { gap: 0; }
+
+/* Reduce spacing between chat and input */
+.centered-chat .gr-row {
+    margin-top: 0;
+}
+
+/* Readability cards */
+.section-card {
+    background: transparent;
+    border: none;
+    border-radius: 40px;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0 !important;
+}
+
+/* Preset chips row */
+.preset-chips {
+    margin-top: 8px;
+}
+
+.preset-chips button { 
+    min-width: 140px; 
+}
+
+/* Logo column styling */
+.logo-column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* stick to left */
+    padding: 0;
+    height: 100%;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    position: relative;
+    top: 0 !important;
+}
+
+.logo-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* stick to left */
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 0 !important;
+    position: relative;
+    top: 0 !important;
+}
+
+.main-logo {
+    width: 110%;
+    height: auto;
+    object-fit: fill;
+    border-radius: 0;
+    margin: 0; /* align to left */
+}
+
+.main-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    border-radius: 0;
+}
+
+/* Simple clean logo styling */
+.clean-logo {
+    position: relative;
+}
+
+/* Make chatbot text bigger */
+.gradio-container .gr-chatbot .gr-placeholder {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #94a3b8 !important;
+    padding: 20px !important;
+}
+
+/* Make all chatbot text larger */
+.gradio-container .gr-chatbot {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+}
+
+.gradio-container .gr-chatbot .message {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+}
+
+.gradio-container .gr-chatbot .message * {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+}
+
+/* Centered chat interface */
+.centered-chat {
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Audio output section - removed since audio is now in chat */
+
+/* Status bar styling */
+.status-bar {
+    margin-bottom: 0;
+}
+
+.audio-status-bar {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 30px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #e2e8f0;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.audio-status-bar .filename-highlight {
+    color: #ec4899; /* pink-500 */
+    font-weight: 700;
+}
+
+.audio-status-bar:empty {
+    display: none;
+}
+
+/* User audio display in chat */
+.user-audio {
+    margin-top: 8px;
+    padding: 12px;
+    background: rgba(99, 102, 241, 0.08);
+    border-radius: 40px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    width: 100%;
+    max-width: 100%;
+}
+
+.user-audio audio {
+    border-radius: 30px;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 300px;
+}
+/* Unified chat audio bubble styling for both user and agent gr.Audio components */
+.chat-audio {
+    border-radius: 40px !important;
+    padding: 12px !important;
+    background: rgba(99, 102, 241, 0.08) !important;
+    border: 1px solid rgba(99, 102, 241, 0.3) !important;
+    width: 100% !important;
+}
+
+.chat-audio audio, .chat-audio .wrap, .chat-audio .container {
+    border-radius: 30px !important;
+}
+
+.user-audio small {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: 6px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Chat message styling - make user messages wider and more prominent */
+.gradio-container .gr-chatbot .message {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.gradio-container .gr-chatbot .message.user {
+    max-width: 100% !important;
+    width: 100% !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+    border: 1px solid rgba(99, 102, 241, 0.2) !important;
+    border-radius: 40px !important;
+    padding: 12px 16px !important;
+    margin: 4px 0 !important;
+}
+
+.gradio-container .gr-chatbot .message.bot {
+    max-width: 100% !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 40px !important;
+    padding: 12px 16px !important;
+    margin: 4px 0 !important;
+}
+
+/* Make chat messages use full width */
+.gradio-container .gr-chatbot .message-wrap {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Ensure chat container uses full width */
+.gradio-container .gr-chatbot {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Make user message text more prominent */
+.gradio-container .gr-chatbot .message.user .message-body {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    color: #e2e8f0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Make bot message text readable */
+.gradio-container .gr-chatbot .message.bot .message-body {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #cbd5e1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure user messages take full width */
+.gradio-container .gr-chatbot .message.user {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Force user message content to full width */
+.gradio-container .gr-chatbot .message.user * {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Make the entire chat interface use full width */
+.section-card {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure the main container uses full width */
+.gradio-container {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Make sure the chat input row uses full width */
+.gradio-container .gr-row {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Chat input row styling for unified shape */
+.chat-input-row {
+    align-items: stretch !important;
+    gap: 8px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.chat-input-text textarea {
+    border-radius: 0px !important;
+}
+
+.chat-input-action button, .chat-input-action input[type="file"] {
+    border-radius: 30px !important;
+}
+
+/* Remove container box/border behind the chat input row */
+.chat-input-row .gr-box,
+.chat-input-row .panel,
+.chat-input-row .container {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Also clear default component wrappers in this row (Gradio v4 wrappers) */
+.chat-input-row .gradio-component,
+.chat-input-row .gr-block,
+.chat-input-row .gr-group,
+.chat-input-row .wrap,
+.chat-input-row .form {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+@media (max-width: 768px) {
+  .preset-chips button { width: 48%; }
+  button[variant="primary"], button[variant="secondary"] { width: 100%; }
+  .centered-chat { max-width: 100%; }
+  
+  /* Mobile: Stack logo above chat */
+  .app-container {
+    flex-direction: column !important;
+  }
+  
+  .logo-column {
+    height: auto;
+    padding: 10px;
+  }
+  
+  .logo-container {
+    padding: 0;
+  }
+  
+  .main-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Make chatbot text smaller on mobile */
+  .gradio-container .gr-chatbot .gr-placeholder {
+    font-size: 16px !important;
+    padding: 15px !important;
+  }
+  
+  .gradio-container .gr-chatbot {
+    font-size: 16px !important;
+  }
+  
+  .gradio-container .gr-chatbot .message {
+    font-size: 16px !important;
+  }
+  
+  .gradio-container .gr-chatbot .message * {
+    font-size: 16px !important;
+  }
+}

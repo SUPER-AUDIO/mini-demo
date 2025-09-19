@@ -1,0 +1,70 @@
+/* SuperAudio Mini - Custom Styling */
+
+/* Purple-highlighted input styling */
+.purple-input textarea {
+    background: linear-gradient(135deg, #9333EA 0%, #7C3AED 100%) !important;
+    border: 2px solid #A855F7 !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important;
+}
+
+.purple-input textarea:focus {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6) !important;
+    border-color: #C084FC !important;
+}
+
+.purple-input textarea::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Audio component styling - Equal-sized audio boxes that match chat history height */
+.equal-audio {
+    height: 200px !important;
+    max-height: 200px !important;
+}
+
+.equal-audio audio {
+    height: 120px !important;
+    max-height: 120px !important;
+}
+
+/* Additional custom styles can be added here */
+
+/* App background image */
+/* Full-viewport dark background */
+html, body {
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    background: radial-gradient(ellipse at 20% 0%, #221046 0%, #11082d 55%, #070418 100%) !important;
+    background-attachment: fixed !important;
+    background-color: #0b0720 !important; /* solid fallback */
+    overflow-y: auto;
+}
+
+/* Ensure Gradio root doesn't reintroduce white */
+.gradio-container {
+    min-height: 100vh !important;
+    background: transparent !important;
+}
+
+/* In case outer wrappers add a background, force them transparent */
+gradio-app, gradio-app > * , #root, body > div:first-child {
+    background: transparent !important;
+    min-height: 100vh;
+}
+
+/* Override theme variable for primary background if used */
+:root {
+    --background-fill-primary: #0b0720 !important;
+}
+
+/* Make inner panels transparent so background is visible */
+.gradio-container .gr-block,
+.gradio-container .gr-panel,
+.gradio-container .gr-box {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}

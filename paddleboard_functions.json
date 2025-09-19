@@ -1,0 +1,350 @@
+{
+    "pedalboard_functions": {
+      "AddLatency": {
+        "description": "A dummy plugin that delays input audio for the given number of samples before passing it back to the output. Used internally to test Pedalboard's automatic latency compensation.",
+        "parameters": {
+          "samples": {
+            "type": "int",
+            "default": 44100,
+            "description": "Number of samples to delay the audio by"
+          }
+        }
+      },
+      "Bitcrush": {
+        "description": "A plugin that reduces the signal to a given bit depth, giving the audio a lo-fi, digitized sound. Floating-point bit depths are supported.",
+        "parameters": {
+          "bit_depth": {
+            "type": "float",
+            "default": 8,
+            "range": "0-32 bits",
+            "description": "The bit depth to quantize the signal to"
+          }
+        }
+      },
+      "Chain": {
+        "description": "Run zero or more plugins as a plugin. Useful when used with the Mix plugin.",
+        "parameters": {
+          "plugins": {
+            "type": "list[Plugin]",
+            "default": "[]",
+            "description": "List of plugins to chain together"
+          }
+        }
+      },
+      "Chorus": {
+        "description": "A basic chorus effect that can be controlled via the speed and depth of the LFO controlling the frequency response, a mix control, a feedback control, and the centre delay of the modulation.",
+        "parameters": {
+          "rate_hz": {
+            "type": "float",
+            "default": 1.0,
+            "range": "0-100 Hz",
+            "description": "The speed of the chorus effect's low-frequency oscillator (LFO), in Hertz"
+          },
+          "depth": {
+            "type": "float",
+            "default": 0.25,
+            "description": "The depth of the chorus effect"
+          },
+          "centre_delay_ms": {
+            "type": "float",
+            "default": 7.0,
+            "description": "The centre delay of the modulation in milliseconds"
+          },
+          "feedback": {
+            "type": "float",
+            "default": 0.0,
+            "description": "The feedback amount for the chorus effect"
+          },
+          "mix": {
+            "type": "float",
+            "default": 0.5,
+            "range": "0.0-1.0",
+            "description": "The dry/wet mix ratio"
+          }
+        }
+      },
+      "Clipping": {
+        "description": "A distortion plugin that adds hard distortion to the signal by clipping the signal at the provided threshold (in decibels).",
+        "parameters": {
+          "threshold_db": {
+            "type": "float",
+            "default": -6.0,
+            "description": "The threshold in decibels at which to clip the signal"
+          }
+        }
+      },
+      "Compressor": {
+        "description": "A dynamic range compressor, used to reduce the volume of loud sounds and 'compress' the loudness of the signal.",
+        "parameters": {
+          "threshold_db": {
+            "type": "float",
+            "default": 0,
+            "description": "The threshold in decibels above which compression starts"
+          },
+          "ratio": {
+            "type": "float",
+            "default": 1,
+            "range": ">= 1.0",
+            "description": "The compression ratio"
+          },
+          "attack_ms": {
+            "type": "float",
+            "default": 1.0,
+            "description": "The attack time in milliseconds"
+          },
+          "release_ms": {
+            "type": "float",
+            "default": 100,
+            "description": "The release time in milliseconds"
+          }
+        }
+      },
+      "Convolution": {
+        "description": "An audio convolution, suitable for things like speaker simulation or reverb modeling. The convolution impulse response can be specified either by filename or as a 32-bit floating point NumPy array.",
+        "parameters": {
+          "impulse_response_filename": {
+            "type": "str",
+            "description": "Path to the impulse response audio file"
+          },
+          "mix": {
+            "type": "float",
+            "default": 1.0,
+            "description": "The dry/wet mix ratio"
+          },
+          "sample_rate": {
+            "type": "float",
+            "default": null,
+            "description": "Sample rate of the impulse response (required when passing numpy array)"
+          }
+        }
+      },
+      "Delay": {
+        "description": "A digital delay plugin with controllable delay time, feedback percentage, and dry/wet mix.",
+        "parameters": {
+          "delay_seconds": {
+            "type": "float",
+            "default": 0.5,
+            "range": "0.0-30.0 seconds",
+            "description": "The delay time in seconds"
+          },
+          "feedback": {
+            "type": "float",
+            "default": 0.0,
+            "range": "0.0-1.0",
+            "description": "The feedback amount"
+          },
+          "mix": {
+            "type": "float",
+            "default": 0.5,
+            "range": "0.0-1.0",
+            "description": "The dry/wet mix ratio"
+          }
+        }
+      },
+      "Distortion": {
+        "description": "A distortion effect, which applies a non-linear (tanh, or hyperbolic tangent) waveshaping function to apply harmonically pleasing distortion to a signal.",
+        "parameters": {
+          "drive_db": {
+            "type": "float",
+            "default": 25,
+            "description": "The drive amount in decibels"
+          }
+        }
+      },
+      "Gain": {
+        "description": "A gain plugin that increases or decreases the volume of a signal by amplifying or attenuating it by the provided value (in decibels).",
+        "parameters": {
+          "gain_db": {
+            "type": "float",
+            "default": 1.0,
+            "description": "The gain in decibels"
+          }
+        }
+      },
+      "GSMFullRateCompressor": {
+        "description": "An audio degradation/compression plugin that applies the GSM 'Full Rate' compression algorithm to emulate the sound of a 2G cellular phone connection.",
+        "parameters": {
+          "quality": {
+            "type": "ResamplingQuality",
+            "default": "WindowedSinc8",
+            "description": "The quality of the resampling algorithm"
+          }
+        }
+      },
+      "HighpassFilter": {
+        "description": "Apply a first-order high-pass filter with a roll-off of 6dB/octave. The cutoff frequency will be attenuated by -3dB and lower frequencies will be attenuated by a further 6dB per octave.",
+        "parameters": {
+          "cutoff_frequency_hz": {
+            "type": "float",
+            "default": 50,
+            "description": "The cutoff frequency in Hertz"
+          }
+        }
+      },
+      "Invert": {
+        "description": "Flip the polarity of the signal. This effect is not audible on its own and takes no parameters. This effect is mathematically identical to def invert(x): return -x.",
+        "parameters": {}
+      },
+      "Limiter": {
+        "description": "A simple limiter with standard threshold and release time controls, featuring two compressors and a hard clipper at 0 dB.",
+        "parameters": {
+          "threshold_db": {
+            "type": "float",
+            "default": -10.0,
+            "description": "The threshold in decibels"
+          },
+          "release_ms": {
+            "type": "float",
+            "default": 100.0,
+            "description": "The release time in milliseconds"
+          }
+        }
+      },
+      "LowpassFilter": {
+        "description": "Apply a first-order low-pass filter with a roll-off of 6dB/octave. The cutoff frequency will be attenuated by -3dB.",
+        "parameters": {
+          "cutoff_frequency_hz": {
+            "type": "float",
+            "default": 50,
+            "description": "The cutoff frequency in Hertz"
+          }
+        }
+      },
+      "Mix": {
+        "description": "A utility plugin that allows running other plugins in parallel. All plugins provided will be mixed equally.",
+        "parameters": {
+          "plugins": {
+            "type": "list[Plugin]",
+            "default": "[]",
+            "description": "List of plugins to run in parallel"
+          }
+        }
+      },
+      "MP3Compressor": {
+        "description": "An MP3 compressor plugin that runs the LAME MP3 encoder in real-time to add compression artifacts to the audio stream. Currently only supports variable bit-rate mode (VBR) and accepts a floating-point VBR quality value (between 0.0 and 10.0; lower is better).",
+        "parameters": {
+          "vbr_quality": {
+            "type": "float",
+            "default": 2.0,
+            "range": "0.0-10.0",
+            "description": "Variable bit rate quality (lower is better)"
+          }
+        }
+      },
+      "NoiseGate": {
+        "description": "A simple noise gate with standard threshold, ratio, attack time and release time controls. Can be used as an expander if the ratio is low.",
+        "parameters": {
+          "threshold_db": {
+            "type": "float",
+            "default": -100.0,
+            "description": "The threshold in decibels"
+          },
+          "ratio": {
+            "type": "float",
+            "default": 10,
+            "description": "The compression/expansion ratio"
+          },
+          "attack_ms": {
+            "type": "float",
+            "default": 1.0,
+            "description": "The attack time in milliseconds"
+          },
+          "release_ms": {
+            "type": "float",
+            "default": 100.0,
+            "description": "The release time in milliseconds"
+          }
+        }
+      },
+      "Phaser": {
+        "description": "A 6 stage phaser that modulates first order all-pass filters to create sweeping notches in the magnitude frequency response. This audio effect can be controlled with standard phaser parameters: the speed and depth of the LFO controlling the frequency response, a mix control, a feedback control, and the centre frequency of the modulation.",
+        "parameters": {
+          "rate_hz": {
+            "type": "float",
+            "default": 1.0,
+            "description": "The speed of the phaser's low-frequency oscillator (LFO), in Hertz"
+          },
+          "depth": {
+            "type": "float",
+            "default": 0.5,
+            "description": "The depth of the phaser effect"
+          },
+          "centre_frequency_hz": {
+            "type": "float",
+            "default": 1300.0,
+            "description": "The centre frequency of the modulation in Hertz"
+          },
+          "feedback": {
+            "type": "float",
+            "default": 0.0,
+            "description": "The feedback amount"
+          },
+          "mix": {
+            "type": "float",
+            "default": 0.5,
+            "description": "The dry/wet mix ratio"
+          }
+        }
+      },
+      "PitchShift": {
+        "description": "A pitch shifting effect that can change the pitch of audio without affecting its duration. This effect uses Chris Cannam's wonderful Rubber Band audio stretching library.",
+        "parameters": {
+          "semitones": {
+            "type": "float",
+            "default": 0.0,
+            "range": "-72 to 72 semitones",
+            "description": "The number of semitones to shift the pitch by"
+          }
+        }
+      },
+      "Reverb": {
+        "description": "A simple reverb effect. Uses a simple stereo reverb algorithm, based on the technique and tunings used in FreeVerb.",
+        "parameters": {
+          "room_size": {
+            "type": "float",
+            "default": 0.5,
+            "range": "0.0-1.0",
+            "description": "Size of the room (higher values create larger, more spacious reverb)"
+          },
+          "damping": {
+            "type": "float",
+            "default": 0.5,
+            "range": "0.0-1.0",
+            "description": "High frequency damping (higher values create 'duller' reverb)"
+          },
+          "wet_level": {
+            "type": "float",
+            "default": 0.33,
+            "range": "0.0-1.0",
+            "description": "Volume of the reverberated signal"
+          },
+          "dry_level": {
+            "type": "float",
+            "default": 0.4,
+            "range": "0.0-1.0",
+            "description": "Volume of the original, uneffected signal"
+          },
+          "width": {
+            "type": "float",
+            "default": 1.0,
+            "range": "0.0-1.0",
+            "description": "Stereo width of the reverb (1.0 = full stereo, 0.0 = mono)"
+          },
+          "freeze_mode": {
+            "type": "float",
+            "default": 0.0,
+            "range": "0.0-1.0",
+            "description": "Freeze mode (when > 0, the reverb freezes and sustains indefinitely)"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "library": "Pedalboard",
+      "version": "0.9.x",
+      "description": "Audio effects library with comprehensive plugin support",
+      "total_functions": 23,
+      "last_updated": "2024"
+    }
+  }
+  
