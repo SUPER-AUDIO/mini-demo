@@ -426,15 +426,6 @@ def load_css_file(filename: str) -> str:
         print(f"Error loading CSS file {filename}: {e}")
         return ""
 
-# Import HTML template system
-from templates import (
-    render_header, 
-    render_status_card, 
-    render_audio_visualizer,
-    render_processing_panel,
-    render_javascript
-)
-
 # Load custom CSS from external files
 base_css = load_css_file("static/styles.css")
 components_css = load_css_file("static/components.css")
